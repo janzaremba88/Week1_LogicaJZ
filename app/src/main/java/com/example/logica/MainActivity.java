@@ -50,43 +50,33 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 boolean[] answer = new boolean[4];
-                if (mInput1.getText().toString() == "T"){
+                if (mInput1.getText().toString().equals("T"))
                     answer[0] = true;
-                }
-                else if (mInput1.getText().toString() == "F"){
+                else if (mInput1.getText().toString().equals("F"))
                     answer[0] = false;
-                }
-                if (mInput2.getText().toString() == "T"){
+                if (mInput2.getText().toString().equals("T"))
                     answer[1] = true;
-                }
-                else if (mInput1.getText().toString() == "F"){
+                else if (mInput2.getText().toString().equals("F"))
                     answer[1] = false;
-                }
-                if (mInput3.getText().toString() == "T"){
+                if (mInput3.getText().toString().equals("T"))
                     answer[2] = true;
-                }
-                else if (mInput1.getText().toString() == "F"){
+                else if (mInput3.getText().toString().equals("F"))
                     answer[2] = false;
-                }
-                if (mInput4.getText().toString() == "T"){
+                if (mInput4.getText().toString().equals("T"))
                     answer[3] = true;
-                }
-                else if (mInput1.getText().toString() == "F"){
+                else if (mInput4.getText().toString().equals("F"))
                     answer[3] = false;
-                }
                 checkAnswers(answer);
             }
         });
     }
 
-    private String randomQuestion(){
+    private String randomQuestion() {
         boolean question = new Random().nextBoolean();
-        if (question) {
+        if (question)
             return ("T");
-        }
-        else {
+        else
             return ("F");
-        }
     }
 
     private void randomizeQuiz() {
@@ -103,42 +93,19 @@ public class MainActivity extends AppCompatActivity {
     private void checkAnswers(boolean[] answer) {
         String message;
         boolean[] actualAnswer = new boolean[4];
-            if (mA1.getText() == "T" && mB1.getText() == "F") {
-                actualAnswer[0] = true;
-            }
-            else{
-                actualAnswer[0] = false;
-            }
-        if (mA2.getText() == "T" && mB2.getText() == "F") {
-            actualAnswer[1] = true;
-        }
-        else{
-            actualAnswer[1] = false;
-        }
-        if (mA3.getText() == "T" && mB3.getText() == "F") {
-            actualAnswer[2] = true;
-        }
-        else{
-            actualAnswer[2] = false;
-        }
-        if (mA4.getText() == "T" && mB4.getText() == "F") {
-            actualAnswer[3] = true;
-        }
-        else{
-            actualAnswer[3] = false;
-        }
+        actualAnswer[0] = mA1.getText().toString().equals("T") && mB1.getText().toString().equals("T");
+        actualAnswer[1] = mA2.getText().toString().equals("T") && mB2.getText().toString().equals("T");
+        actualAnswer[2] = mA3.getText().toString().equals("T") && mB3.getText().toString().equals("T");
+        actualAnswer[3] = mA4.getText().toString().equals("T") && mB4.getText().toString().equals("T");
         boolean allAnswersCorrect = true;
-        for (int i = 0; i < answer.length; i++){
-            if ((!answer[i] && actualAnswer[i]) || (answer[i] && !actualAnswer[i])){
+        for (int i = 0; i < answer.length; i++) {
+            if (answer[i] != actualAnswer[i])
                 allAnswersCorrect = false;
-            }
         }
-        if (allAnswersCorrect) {
+        if (allAnswersCorrect)
             message = getString(R.string.correct);
-        }
-        else {
+        else
             message = getString(R.string.incorrect);
-        }
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
         randomizeQuiz();
     }

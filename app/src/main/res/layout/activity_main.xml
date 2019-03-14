@@ -19,7 +19,10 @@
             android:id="@+id/inputAnswer4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/t_or_f" />
+            android:hint="@string/t_or_f"
+            android:inputType="textCapCharacters"
+            android:maxLength="1"
+            android:singleLine="true" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -35,7 +38,9 @@
             android:id="@+id/inputAnswer3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/t_or_f" />
+            android:hint="@string/t_or_f"
+            android:inputType="textCapCharacters"
+            android:maxLength="1" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -51,7 +56,9 @@
             android:id="@+id/inputAnswer1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/t_or_f" />
+            android:hint="@string/t_or_f"
+            android:inputType="textCapCharacters"
+            android:maxLength="1" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -67,7 +74,9 @@
             android:id="@+id/inputAnswer2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/t_or_f" />
+            android:hint="@string/t_or_f"
+            android:inputType="textCapCharacters"
+            android:maxLength="1" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
