@@ -50,23 +50,34 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 boolean[] answer = new boolean[4];
-                if (mInput1.getText().toString().equals("T"))
-                    answer[0] = true;
-                else if (mInput1.getText().toString().equals("F"))
-                    answer[0] = false;
-                if (mInput2.getText().toString().equals("T"))
-                    answer[1] = true;
-                else if (mInput2.getText().toString().equals("F"))
-                    answer[1] = false;
-                if (mInput3.getText().toString().equals("T"))
-                    answer[2] = true;
-                else if (mInput3.getText().toString().equals("F"))
-                    answer[2] = false;
-                if (mInput4.getText().toString().equals("T"))
-                    answer[3] = true;
-                else if (mInput4.getText().toString().equals("F"))
-                    answer[3] = false;
-                checkAnswers(answer);
+                if (!(mInput1.getText().toString().equals("T")
+                        || mInput1.getText().toString().equals("F"))
+                        || !(mInput2.getText().toString().equals("T")
+                        || mInput2.getText().toString().equals("F"))
+                        || !(mInput3.getText().toString().equals("T")
+                        || mInput3.getText().toString().equals("F"))
+                        || !(mInput4.getText().toString().equals("T")
+                        || mInput4.getText().toString().equals("F"))) {
+                    Toast.makeText(MainActivity.this, getString(R.string.answersemptywarning), Toast.LENGTH_SHORT).show();
+                } else {
+                    if (mInput1.getText().toString().equals("T"))
+                        answer[0] = true;
+                    else if (mInput1.getText().toString().equals("F"))
+                        answer[0] = false;
+                    if (mInput2.getText().toString().equals("T"))
+                        answer[1] = true;
+                    else if (mInput2.getText().toString().equals("F"))
+                        answer[1] = false;
+                    if (mInput3.getText().toString().equals("T"))
+                        answer[2] = true;
+                    else if (mInput3.getText().toString().equals("F"))
+                        answer[2] = false;
+                    if (mInput4.getText().toString().equals("T"))
+                        answer[3] = true;
+                    else if (mInput4.getText().toString().equals("F"))
+                        answer[3] = false;
+                    checkAnswers(answer);
+                }
             }
         });
     }
